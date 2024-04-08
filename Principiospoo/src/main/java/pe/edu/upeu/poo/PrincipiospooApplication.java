@@ -11,7 +11,7 @@ public class PrincipiospooApplication {
 		SpringApplication.run(PrincipiospooApplication.class, args);
                 System.out.println("HOLa MUNDO");
                 Persona objp=new Persona();
-                objp.setNombre("Alex");
+                objp.setNombre("AlexA");
                 objp.setEdad(25);
                 System.out.println("Nombre: "+objp.getNombre());
                 System.out.println("Edad: "+objp.getEdad());
