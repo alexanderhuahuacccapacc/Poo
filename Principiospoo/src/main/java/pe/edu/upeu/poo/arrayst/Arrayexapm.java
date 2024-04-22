@@ -30,5 +30,13 @@ public class Arrayexapm {
             System.err.println(px.getDni()+"\t"+px.getNombre()+"\t\t"+px.getEdad());
            // System.out.println(px.getDni()+"\t"+px.getNombre()"\t\t"+px.getEdad());
         }
+        //Eliminar
+        personas.remove(1);
+        System.out.println("DNI\t\tNombres\t\tEdad");
+        for (Persona px: personas) {
+            System.out.println(px.getDni()+"\t"+px.getNombre()+"\t\t"+px.getEdad());
+            
+            
+        }
     }
 }
