@@ -4,8 +4,11 @@
  */
 package pe.edu.upeu.syscenterlife.gui;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -116,6 +119,12 @@ public class MainCliente extends javax.swing.JPanel {
         jLabel1.setText("GESTIONAR CLIENTES");
 
         jLabel5.setText("Dato a Buscar:");
+
+        txtDatoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDatoBuscarKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Exportar:");
 
@@ -333,7 +342,9 @@ public class MainCliente extends javax.swing.JPanel {
         resetForm();
         btnRegistrar.setText("Registrar");
         txtDniruc.setEditable(true);
+        //érmite ditar el DNI
         jTable1.getSelectionModel().clearSelection();
+        //seleciona nueva linea
 
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -368,6 +379,7 @@ public class MainCliente extends javax.swing.JPanel {
         to.setDocumento(cbxTipo.getSelectedItem() == null ? ""
                 : cbxTipo.getSelectedItem().toString());
         int fila = jTable1.getSelectedRow();
+        // comprobar si una celda 
         if (fila != -1) {
             try {
                 Cliente resultado = clienteService.updateEntidad(to);
@@ -378,7 +390,7 @@ public class MainCliente extends javax.swing.JPanel {
                     modelo.removeRow(fila);
                     modelo.insertRow(fila, nuevo);
                     resetForm();
-                    JOptionPane.showMessageDialog(this, "Re registro");
+                    JOptionPane.showMessageDialog(this, "Reregistrado");
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
@@ -405,7 +417,27 @@ public class MainCliente extends javax.swing.JPanel {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         paintForm();
+        //sirve para hacee clic en la pantalla
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void txtDatoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatoBuscarKeyTyped
+        // TODO add your handling code here:
+        txtDatoBuscar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String cadena = (txtDatoBuscar.getText());
+                System.out.println("v:" + cadena);
+                txtDatoBuscar.setText(cadena);
+                repaint();
+
+                trsfiltro.setRowFilter(RowFilter.regexFilter(txtDatoBuscar.getText())
+                );
+            }
+        });
+        System.out.println("llego");
+        trsfiltro = new TableRowSorter<>(jTable1.getModel());
+        jTable1.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtDatoBuscarKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
