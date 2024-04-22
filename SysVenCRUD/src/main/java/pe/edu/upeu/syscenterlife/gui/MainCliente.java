@@ -4,15 +4,24 @@
  */
 package pe.edu.upeu.syscenterlife.gui;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import org.springframework.context.ConfigurableApplicationContext;
+import pe.edu.upeu.syscenterlife.service.ClienteService;
+
 /**
  *
  * @author Datos
  */
 public class MainCliente extends javax.swing.JPanel {
+    DefaultTableModel modelo;
+    ConfigurableApplicationContext ctx;
+    ClienteService clienteService = new ClienteService();
+    TableRowSorter<TableModel> trsfiltro;
 
-    /**
-     * Creates new form MainCliente
-     */
+    enum TIPOCLXIENTE {
+        Natural, General, Juridico};
     public MainCliente() {
         initComponents();
     }
