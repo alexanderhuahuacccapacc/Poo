@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pe.edu.upeu</groupId>
-	<artifactId>SysVenCRUD</artifactId>
+	<artifactId>SysVentCRUD</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SysVenCRUD</name>
+	<name>SysVentCRUD</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>

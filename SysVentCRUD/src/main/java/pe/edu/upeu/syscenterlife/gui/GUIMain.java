@@ -26,16 +26,19 @@ public class GUIMain extends JFrame {
         this.setTitle("SystemMain@DMP");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setSize(new Dimension(screenSize.width, (screenSize.height) - 36));
+        this.setSize(new Dimension(screenSize.width, (screenSize.height)
+                - 36));
         MainCliente mc = new MainCliente();
-        //mc.setContexto(ctx); 
+        //mc.setContexto(ctx);
         mc.setPreferredSize(new Dimension(1024, 600));
         jtpane = new JTabbedPane();
         jtpane.setName("Cliente");
         jtpane.add(mc);
         scrollPane = new JScrollPane(mc);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         jtpane.add(scrollPane, "Cliente");
         this.add(BorderLayout.CENTER, jtpane);
         this.validate();
