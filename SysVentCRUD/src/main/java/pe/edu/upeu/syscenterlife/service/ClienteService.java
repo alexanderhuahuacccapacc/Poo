@@ -2,11 +2,16 @@ package pe.edu.upeu.syscenterlife.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upeu.syscenterlife.dao.ClienteDao;
 import pe.edu.upeu.syscenterlife.modelo.Cliente;
 // este codigo esta el CRUD 
 @Service
 public class ClienteService {
+
+    ClienteDao clienteDao=new ClienteDao();
 
     List<Cliente> listaCli = new ArrayList<>();
     //datos permanentes que puedes agregar
@@ -16,7 +21,8 @@ public class ClienteService {
     }
 
     public List<Cliente> listarEntidad() {  //report
-        return listaCli;
+
+        return clienteDao.listarCliente();
     }
 
     public Cliente buscarCliente(String dnirucx) {  //buscrar
