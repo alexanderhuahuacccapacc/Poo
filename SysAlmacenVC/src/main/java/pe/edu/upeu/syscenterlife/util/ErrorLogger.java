@@ -10,12 +10,15 @@ import java.util.Date;
 import java.util.logging.*;
 
 public class ErrorLogger {
+
     protected static final Logger logger = Logger.getLogger("MYLOG");
     private static String classs = "";
+
     public ErrorLogger(String classs) {
         this.classs = classs;
         configure();
     }
+
     private static void configure() {
         try {
             String logsDirectoryFolder = "logs";
@@ -30,6 +33,7 @@ public class ErrorLogger {
         }
         addCloseHandlersShutdownHook();
     }
+
     private static void addCloseHandlersShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(()
                 -> {
@@ -38,10 +42,12 @@ public class ErrorLogger {
             }
         }));
     }
+
     private static String getCurrentTimeString() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(new Date());
     }
+
     public static void log(Level level, String me, Exception exception) {
         if (classs.equals("")) {
             configure();
@@ -49,8 +55,5 @@ public class ErrorLogger {
         } else {
             logger.log(level, classs + "." + me, exception);
         }
-
     }
-
 }
-

@@ -1,7 +1,7 @@
 package pe.edu.upeu.syscenterlife.util;
 
 import javax.swing.*;
-//esto es importante para las librerias
+
 /**
  * Clase Principal para manejo de alertas
  *
@@ -18,10 +18,14 @@ import javax.swing.*;
  * @return No hay retorno de metodos
  */
 public class MsgBox {
+
     UtilsX obj = new UtilsX();
     JPanel p;
     ImageIcon icon = null;
-    public MsgBox() {}
+
+    public MsgBox() {
+    }
+
     public MsgBox(String msg, int tipoDialog, String iconPropio) {
         if (!iconPropio.trim().equals("")) {
             icon = new ImageIcon(obj.getFile(iconPropio));
@@ -30,14 +34,9 @@ public class MsgBox {
             JOptionPane.showMessageDialog(p, msg, "Holas", tipoDialog);
         }
     }
-    //para que salga un mensaje de eooro o algo asi
+
     public static void main(String[] args) {
-       //MsgBox msgBox = new MsgBox("Mensaje", JOptionPane.ERROR_MESSAGE, "img/secrecy-icon.png");
-        MsgBox msgBox = new MsgBox("Mensaje", JOptionPane.INFORMATION_MESSAGE, "");
-
-
-
-
+        //MsgBox msgBox = new MsgBox("Mensaje", JOptionPane.ERROR_MESSAGE, "img/secrecy-icon.png");
+        MsgBox msgBox = new MsgBox("Probando.....", JOptionPane.CANCEL_OPTION, "");
     }
-
 }

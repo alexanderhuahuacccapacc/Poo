@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package pe.edu.upeu.syscenterlife.service;
+package pe.edu.upeu.syscenterlife.servicio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +6,6 @@ import java.util.Properties;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.syscenterlife.modelo.MenuMenuItenTO;
 
-/**
- *
- * @author 51960
- */
 @Service
 public class MenuMenuItemDao implements MenuMenuItenDaoI {
 
@@ -29,7 +21,7 @@ public class MenuMenuItemDao implements MenuMenuItenDaoI {
         lista.add(new MenuMenuItenTO("Help", "Ver1", "miver1"));
         lista.add(new MenuMenuItenTO("Help", "Ver2", "miver2"));
         lista.add(new MenuMenuItenTO("Principal", "Cliente", "cliente"));
-lista.add(new MenuMenuItenTO("Principal", "Area Periodo", "areaperiodo"));
+        lista.add(new MenuMenuItenTO("Principal", "Area Periodo", "areaperiodo"));
         List<MenuMenuItenTO> accesoReal = new ArrayList<>();
         switch (perfil) {
             case "Administrador":
@@ -54,5 +46,4 @@ lista.add(new MenuMenuItenTO("Principal", "Area Periodo", "areaperiodo"));
         }
         return accesoReal;
     }
-    
-}    
+}

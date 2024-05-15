@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.util;
 
 import java.io.File;
@@ -13,10 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-/**
- *
- * @author 51960
- */
 public class UtilsX {
 
     public URL getFile(String ruta) {
@@ -35,11 +27,8 @@ public class UtilsX {
         String ruta = newFolder.getAbsolutePath();
         Path CAMINO = Paths.get(ruta + "/");
         return CAMINO.toFile();
-
     }
 
-    //control + shit + i, para poder importar en bloque 
-    // todo deben estar en su mismo carracter, el mas comun es phat
     public Properties detectLanguage(String idioma) {
         Properties myresourcesx = new Properties();
         try {
@@ -54,10 +43,7 @@ public class UtilsX {
             e.printStackTrace();
         }
         return myresourcesx;
-        
-            
-        }
-    
+    }
 
     public String readLanguageFile() {
         Properties myresourcesx = new Properties();
@@ -75,7 +61,5 @@ public class UtilsX {
             e.printStackTrace();
         }
         return idioma;
-
     }
-
 }
