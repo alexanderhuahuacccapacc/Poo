@@ -15,7 +15,7 @@ import javax.swing.table.TableRowSorter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
-import pe.edu.upeu.syscenterlife.modelo.Cliente;
+import pe.edu.upeu.syscenterlife.modelo.Producto;
 import pe.edu.upeu.syscenterlife.servicio.ClienteService;
 
 @Component
@@ -45,7 +45,7 @@ public class MainCliente extends javax.swing.JPanel {
     }
     
     public void listarClientes() {
-        List<Cliente> listarCleintes = clienteService.listarEntidad();
+        List<Producto> listarCleintes = clienteService.listarEntidad();
         if (listarCleintes != null) {
             jTable1.setAutoCreateRowSorter(true);
             modelo = (DefaultTableModel) jTable1.getModel();
@@ -75,7 +75,7 @@ public class MainCliente extends javax.swing.JPanel {
             int rowx = jTable1.getSelectedRow();
             Object valor = jTable1.getValueAt(rowx, 1);
             //ClienteTO filax = (ClienteTO)modelo.getRow(jTable1.getSelectedRow());
-            Cliente d = clienteService.buscarCliente(valor.toString());
+            Producto d = clienteService.buscarCliente(valor.toString());
             txtDniruc.setText(d.getDniruc());
             txtNombre.setText(d.getNombrers());
             cbxTipo.setSelectedItem(d.getDocumento());
@@ -138,30 +138,32 @@ public class MainCliente extends javax.swing.JPanel {
 
         jButton5.setText("PDF");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 2, 17)); // NOI18N
-        jLabel7.setText("XANDERCORPORATION S.A.C");
+        jLabel7.setText("Xander.Corpotition S.A.C");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel7))
-                .addGap(226, 226, 226)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel6))
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1)
+                        .addGap(226, 226, 226)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtDatoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtDatoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)))
+                        .addContainerGap()
+                        .addComponent(jLabel7)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -173,18 +175,14 @@ public class MainCliente extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addComponent(jLabel6))
                     .addComponent(jLabel1))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDatoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))
-                        .addContainerGap(28, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(19, 19, 19))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDatoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
@@ -388,7 +386,7 @@ public class MainCliente extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        Cliente to = new Cliente();
+        Producto to = new Producto();
         to.setDniruc(txtDniruc.getText());
         to.setNombrers(txtNombre.getText());
         to.setDocumento(cbxTipo.getSelectedItem() == null ? ""
@@ -397,7 +395,7 @@ public class MainCliente extends javax.swing.JPanel {
         int fila = jTable1.getSelectedRow();
         if (fila != -1) {
             try {
-                Cliente resultado = clienteService.actualizarEntidad(to);
+                Producto resultado = clienteService.actualizarEntidad(to);
                 if (resultado != null) {
                     modelo = (DefaultTableModel) jTable1.getModel();
                     Object nuevo[] = {fila + 1, to.getDniruc(), to.getNombrers(),
