@@ -1,7 +1,9 @@
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -21,14 +23,18 @@ import lombok.NoArgsConstructor;
 public class Cliente {
 
     @Id
-    String dniruc;
-    String nombrers;
-    String documentos;
+    @Basic(optional = false)
+    @Column(name = "dniruc")
+    private String dniruc;
+    @Basic(optional = false)
+    @Column(name = "nombrers")
+    private String nombrers;
+    @Column(name = "documento")
+    private String documento;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "dniruc", referencedColumnName = "dniruc")
     @JsonIgnoreProperties({"dniruc"})
-
     public List<Venta> ventas;
 
 }

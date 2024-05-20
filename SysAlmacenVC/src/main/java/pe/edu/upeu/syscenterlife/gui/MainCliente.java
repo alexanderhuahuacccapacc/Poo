@@ -15,6 +15,7 @@ import javax.swing.table.TableRowSorter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
+import pe.edu.upeu.syscenterlife.modelo.Cliente;
 import pe.edu.upeu.syscenterlife.modelo.Producto;
 import pe.edu.upeu.syscenterlife.servicio.ClienteService;
 
@@ -45,7 +46,7 @@ public class MainCliente extends javax.swing.JPanel {
     }
     
     public void listarClientes() {
-        List<Producto> listarCleintes = clienteService.listarEntidad();
+        List<Cliente> listarCleintes = clienteService.listarEntidad();
         if (listarCleintes != null) {
             jTable1.setAutoCreateRowSorter(true);
             modelo = (DefaultTableModel) jTable1.getModel();
@@ -75,7 +76,7 @@ public class MainCliente extends javax.swing.JPanel {
             int rowx = jTable1.getSelectedRow();
             Object valor = jTable1.getValueAt(rowx, 1);
             //ClienteTO filax = (ClienteTO)modelo.getRow(jTable1.getSelectedRow());
-            Producto d = clienteService.buscarCliente(valor.toString());
+            Cliente d = clienteService.buscarCliente(valor.toString());
             txtDniruc.setText(d.getDniruc());
             txtNombre.setText(d.getNombrers());
             cbxTipo.setSelectedItem(d.getDocumento());
@@ -386,7 +387,7 @@ public class MainCliente extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        Producto to = new Producto();
+        Cliente to = new Cliente();
         to.setDniruc(txtDniruc.getText());
         to.setNombrers(txtNombre.getText());
         to.setDocumento(cbxTipo.getSelectedItem() == null ? ""
@@ -395,7 +396,7 @@ public class MainCliente extends javax.swing.JPanel {
         int fila = jTable1.getSelectedRow();
         if (fila != -1) {
             try {
-                Producto resultado = clienteService.actualizarEntidad(to);
+                Cliente resultado = clienteService.actualizarEntidad(to);
                 if (resultado != null) {
                     modelo = (DefaultTableModel) jTable1.getModel();
                     Object nuevo[] = {fila + 1, to.getDniruc(), to.getNombrers(),
