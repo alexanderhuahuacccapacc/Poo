@@ -28,8 +28,12 @@ public class ClienteService {
     public void eliminarRegEntidad(String dniruc){
         clienteRepository.delete(clienteRepository.findById(dniruc).get());
     }
+    
     //Buscar
     public Cliente buscarCliente(String dniruc){
         return clienteRepository.findById(dniruc).get();
+    }
+    public List<Cliente> buscarClienteNombre(String nombre){
+        return clienteRepository.findByNombre("%"+nombre+"%");
     }
 }
