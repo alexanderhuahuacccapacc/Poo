@@ -6,9 +6,11 @@ import java.util.logging.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.syscenterlife.autocomp.ModeloDataAutocomplet;
+import pe.edu.upeu.syscenterlife.modelo.ComboBoxOption;
 import pe.edu.upeu.syscenterlife.modelo.Producto;
 import pe.edu.upeu.syscenterlife.repositorio.ProductoRepository;
 import pe.edu.upeu.syscenterlife.util.ErrorLogger;
+
 
 @Service
 public class ProductoService {
@@ -60,6 +62,14 @@ public class ProductoService {
         }
 
         return listarProducto;
+    }
+    public List<ComboBoxOption> listaMarcaCombobox(Integer id){
+        List<ComboBoxOption> listar = new ArrayList<>();
+        for(Producto marca : repository.listProductoMarca(id)){
+            listar.add(new ComboBoxOption(String.valueOf(marca.getIdProducto()),
+                    marca.getNombre()));
+        }
+      return listar ;  
     }
 
 }
