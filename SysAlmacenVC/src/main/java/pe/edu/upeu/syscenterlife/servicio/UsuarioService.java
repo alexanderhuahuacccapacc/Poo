@@ -35,4 +35,8 @@ public class UsuarioService {
     public Usuario buscarEntidad(Long id){
         return repository.findById(id).orElse(null);
     }
+    // Buscar por ID
+    public Usuario loginUsuario(String username, String clave){
+        return repository.loginUsuario(username, clave);
+    }
 }
