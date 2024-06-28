@@ -163,18 +163,17 @@ public class GUIMain extends JFrame {
             }
             if (((JMenuItem) e.getSource()).getName().equals("miareaperiodo")) {
                 System.out.println("Si llega!");
-                                
                 jtpane.removeAll();
                 //MainCliente mc = new MainCliente();
-                MainVenta mcx = ctx.getBean(MainVenta.class);
-                mcx.setContexto(ctx);
-                mcx.setPreferredSize(new Dimension(1024, 600));
-                scrollPane = new JScrollPane(mcx);
+                MainVenta mc = ctx.getBean(MainVenta.class);
+                mc.setContexto(ctx);
+                mc.setPreferredSize(new Dimension(1024, 600));
+                scrollPane = new JScrollPane(mc);
                 scrollPane.setHorizontalScrollBarPolicy(
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
                 scrollPane.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-                jtpane.add(scrollPane, "Cliente");
+                jtpane.add(scrollPane, "Ventas");
                 contai.add(BorderLayout.CENTER, jtpane);
                 contai.validate();
                 contai.repaint();

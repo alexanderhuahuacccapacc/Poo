@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -18,10 +14,6 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 import lombok.Data;
 
-/**
- *
- * @author Datos
- */
 @Data
 @Entity
 public class Usuario {

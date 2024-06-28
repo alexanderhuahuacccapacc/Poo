@@ -12,10 +12,10 @@ import pe.edu.upeu.syscenterlife.util.ErrorLogger;
 
 @Service
 public class ClienteService {
-
+    ErrorLogger log=new ErrorLogger("ClienteService.class");
+    
     @Autowired
     ClienteRepository clienteRepository;
-    ErrorLogger log=new ErrorLogger("ClienteService");
 
     //Create
     public Cliente guardarEntidad(Cliente cliente) {
@@ -42,6 +42,7 @@ public class ClienteService {
         return clienteRepository.findById(dniruc).get();
     }
 
+    //Buscar
     public List<Cliente> buscarClienteNombre(String nombre) {
         return clienteRepository.findByNombre("%" + nombre + "%");
     }

@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/segundaunidad/Poo/EXAMEN02/src/modelo/Jugador.java</file>
-            <file>file:/D:/segundaunidad/Poo/EXAMEN02/src/modelo/Cuadro.java</file>
-            <file>file:/D:/segundaunidad/Poo/EXAMEN02/src/vista/FromInicio.java</file>
-            <file>file:/D:/segundaunidad/Poo/EXAMEN02/src/vista/FormTikTacToe.java</file>
-            <file>file:/D:/segundaunidad/Poo/EXAMEN02/src/vista/FormResultado.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/vista/FormResultado.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/Tablero.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/Imagen.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/TipoImagen.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/PanelRedondeado.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/Jugador.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/principal/Principal.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/Ruta.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/vista/FromInicio.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/vista/FormTikTacToe.java</file>
+            <file>file:/D:/ProyectoXandar/Poo/ALD/src/modelo/Cuadro.java</file>
         </group>
     </open-files>
 </project-private>

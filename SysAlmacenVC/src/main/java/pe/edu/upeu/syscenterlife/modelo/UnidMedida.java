@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,15 +15,10 @@ import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
 
-/**
- *
- * @author Datos
- */
 @Data
 @Entity
-@Table (name = "unid_medida")
+@Table(name = "unid_medida")
 public class UnidMedida {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -38,11 +29,7 @@ public class UnidMedida {
     private String nombreMedida;
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    //de uno a muchos
     @JoinColumn(name = "id_unidad", referencedColumnName = "id_unidad")
-    // une columnas
     @JsonIgnoreProperties({"idUnidad"})
-    //
     public List<Producto> productos;
-
 }

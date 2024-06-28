@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.upeu.syscenterlife.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -16,10 +12,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-/**
- *
- * @author Datos
- */
 @Data
 @Entity
 @Table(name = "venta_detalle")
@@ -42,7 +34,6 @@ public class VentaDetalle {
     @Basic(optional = false)
     @Column(name = "subtotal")
     private double subtotal;
-
     @JoinColumn(name = "id_venta", referencedColumnName = "id_venta")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties({"ventaDetalles"})

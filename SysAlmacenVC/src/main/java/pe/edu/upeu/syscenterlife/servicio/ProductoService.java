@@ -1,55 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package pe.edu.upeu.syscenterlife.servicio;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.logging.Level;
 import pe.com.syscenterlife.autocomp.ModeloDataAutocomplet;
 import pe.edu.upeu.syscenterlife.modelo.ComboBoxOption;
 import pe.edu.upeu.syscenterlife.modelo.Producto;
 import pe.edu.upeu.syscenterlife.repositorio.ProductoRepository;
 import pe.edu.upeu.syscenterlife.util.ErrorLogger;
 
-
 @Service
 public class ProductoService {
 
+    ErrorLogger log=new ErrorLogger("ProductoService.class");
+     
     @Autowired
-    ProductoRepository repository;
-    
-    ErrorLogger log=new ErrorLogger("ProductoService");
+    ProductoRepository productoRepository;
 
-    // Crear
+    // Create
     public Producto guardarEntidad(Producto producto) {
-        return repository.save(producto);
+        return productoRepository.save(producto);
     }
 
-    // Leer todos los elementos
+    // Report
     public List<Producto> listarEntidad() {
-        return repository.findAll();
+        return productoRepository.findAll();
     }
 
-    // Actualizar
+    // Update
     public Producto actualizarEntidad(Producto producto) {
-        return repository.save(producto);
+        return productoRepository.save(producto);
     }
 
-    // Eliminar
-    public void eliminarEntidad(Long id) {
-        repository.deleteById(id);
+    // Delete
+    public void eliminarRegEntidad(Integer idProducto) {
+        productoRepository.deleteById(idProducto);
     }
 
     // Buscar por ID
-    public Producto buscarEntidad(Long id) {
-        return repository.findById(id).orElse(null);
+    public Producto buscarProducto(Integer idProducto) {
+        return productoRepository.findById(idProducto).orElse(null);
     }
 
     public List<ModeloDataAutocomplet> listAutoCompletProducto(String nombre) {
         List<ModeloDataAutocomplet> listarProducto = new ArrayList<>();
-
         try {
-            for (Producto producto : repository.listAutoCompletProducto(nombre + "%")) {
+            for (Producto producto : productoRepository.listAutoCompletProducto(nombre + "%")) {
                 ModeloDataAutocomplet data = new ModeloDataAutocomplet();
                 ModeloDataAutocomplet.TIPE_DISPLAY = "ID";
                 data.setIdx(producto.getNombre());
@@ -58,18 +60,18 @@ public class ProductoService {
                 listarProducto.add(data);
             }
         } catch (Exception e) {
-            log.log(Level.SEVERE, "create", e);
+            log.log(Level.SEVERE, "Error al realizar la busqueda", e);
         }
-
         return listarProducto;
     }
+    
     public List<ComboBoxOption> listaMarcaCombobox(Integer id){
-        List<ComboBoxOption> listar = new ArrayList<>();
-        for(Producto marca : repository.listProductoMarca(id)){
+        List<ComboBoxOption> listar=new ArrayList<>();
+        for (Producto marca : productoRepository.listProductoMarca(id)) {
             listar.add(new ComboBoxOption(String.valueOf(marca.getIdProducto()),
                     marca.getNombre()));
         }
-      return listar ;  
+        return listar;
     }
 
 }

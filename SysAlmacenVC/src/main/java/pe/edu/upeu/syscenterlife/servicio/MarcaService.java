@@ -37,12 +37,13 @@ public class MarcaService {
     public Marca buscarEntidad(Long id){
         return repository.findById(id).orElse(null);
     }
-    public List<ComboBoxOption> listaarcaCombobox(){
-        List<ComboBoxOption> listar = new ArrayList<>();
-        for(Marca marca : repository.findAll()){
+    
+    public List<ComboBoxOption> listaMarcaCombobox(){
+        List<ComboBoxOption> listar=new ArrayList<>();
+        for (Marca marca : repository.findAll()) {
             listar.add(new ComboBoxOption(String.valueOf(marca.getIdMarca()),
                     marca.getNombre()));
         }
-      return listar ;  
+        return listar;
     }
 }
