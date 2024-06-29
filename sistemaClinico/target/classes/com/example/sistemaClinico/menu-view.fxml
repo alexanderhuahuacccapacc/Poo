@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sistemaClinico.controlador.MenuController">
+    <left>
+        <VBox prefHeight="400.0" prefWidth="117.0" style="-fx-background-color: #2ba4ff;" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onMouseClicked="#home" prefHeight="33.0" prefWidth="117.0"
+                        style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;"
+                        text="Home" textFill="WHITE">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onMouseClicked="#clinica" prefHeight="33.0" prefWidth="117.0"
+                        style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;"
+                        text="Clinica" textFill="WHITE">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+
+                <Button mnemonicParsing="false" onMouseClicked="#cita" prefHeight="33.0" prefWidth="117.0"
+                        style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;"
+                        text="Cita" textFill="WHITE">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #02e6ff;"
+                    BorderPane.alignment="CENTER">
+            <children>
+                <Text layoutX="181.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Principal"
+                      wrappingWidth="115.10546875"/>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
