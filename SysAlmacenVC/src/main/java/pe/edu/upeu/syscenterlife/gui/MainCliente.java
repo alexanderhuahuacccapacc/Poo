@@ -446,7 +446,7 @@ public class MainCliente extends javax.swing.JPanel {
                     modelo.removeRow(fila);
                     modelo.insertRow(fila, nuevo);
                     resetForm();
-                    JOptionPane.showMessageDialog(this, "Re registro");
+                    JOptionPane.showMessageDialog(this, "Registro");
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
